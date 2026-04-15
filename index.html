@@ -748,6 +748,97 @@
       justify-content: space-between;
     }
 
+    /* ── EXPERIENCE ── */
+    #experience {
+      padding: 120px 60px;
+      background: transparent;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0 60px;
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .exp-item.visible {
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-meta { padding-top: 4px; }
+
+    .exp-period {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .exp-company {
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .exp-role {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+
+    .exp-content { display: flex; flex-direction: column; }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .exp-bullets li {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 12px;
+      top: 3px;
+    }
+
+    .exp-bullets li strong { color: var(--text); font-weight: 500; }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     /* ── CONTACT ── */
     #contact {
       padding: 120px 60px;
@@ -935,7 +1026,8 @@
       .orb-2 { width: 220px; height: 220px; }
 
       /* About */
-      #about, #projects, #contact { padding: 70px 20px; }
+      #about, #experience, #projects, #contact { padding: 70px 20px; }
+      .exp-item { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
       .skills-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
       .skill-item { font-size: 14px; padding: 16px 14px; gap: 10px; }
@@ -977,6 +1069,7 @@
     <span class="nav-logo">samuelnunes.dev<span class="cursor"></span></span>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -1055,6 +1148,69 @@
         <div class="skill-item"><img class="skill-icon" src="https://cdn.simpleicons.org/stripe/ffffff" alt="Stripe" />Stripe</div>
         <div class="skill-item"><img class="skill-icon" src="https://cdn.simpleicons.org/whatsapp/ffffff" alt="WhatsApp" />WhatsApp API</div>
       </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-label">// experience</div>
+    <h2 class="section-title">Where I've worked</h2>
+
+    <div class="exp-list">
+
+      <div class="exp-item reveal">
+        <div class="exp-meta">
+          <div class="exp-period">Jun 2025 — Present</div>
+          <div class="exp-company">Clínica Rigatti</div>
+          <div class="exp-role">Full Stack Developer</div>
+        </div>
+        <div class="exp-content">
+          <ul class="exp-bullets">
+            <li>Designed and deployed <strong>8 AI agents in production</strong> using function calling and LangChain — handling lead qualification, appointment confirmation, and patient triage autonomously via WhatsApp.</li>
+            <li>Architected <strong>30+ n8n automation workflows</strong> running 24/7, including a multi-source lead qualification engine processing 7+ input channels with scoring, tagging, and intelligent routing.</li>
+            <li>Built a <strong>multi-channel lead recovery system</strong> with an intelligent follow-up queue (1h, 6h, 24h, 72h windows), anti-duplication logic, and automatic handoff to AI agent on response — across WhatsApp and SMS.</li>
+            <li>Implemented <strong>automated test suites</strong> covering critical platform modules including trigger flows, automated actions, and cross-module integration.</li>
+            <li>Implemented <strong>Meta Conversions API</strong> server-side with advanced parameters across all lead capture flows, enabling precise campaign attribution for paid traffic.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">n8n</span>
+            <span class="tag">Docker</span>
+            <span class="tag">AWS</span>
+            <span class="tag">WhatsApp API</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal" style="animation-delay: 0.15s">
+        <div class="exp-meta">
+          <div class="exp-period">Jan 2026 — Present</div>
+          <div class="exp-company">CVEngine</div>
+          <div class="exp-role">Founder & Developer</div>
+        </div>
+        <div class="exp-content">
+          <ul class="exp-bullets">
+            <li>Designed, built, and launched a <strong>SaaS product independently</strong> — from architecture decisions to payment integration and production deploy.</li>
+            <li>Engineered an <strong>AI pipeline</strong> that extracts structured data from job descriptions, scores profile compatibility (0–100), and generates ATS-optimized resumes tailored to each role.</li>
+            <li>Implemented <strong>real-time notifications via SSE</strong>, subscription plans with usage limits, Stripe checkout and webhook handling, and on-demand PDF generation with Puppeteer.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">OpenAI</span>
+            <span class="tag">Stripe</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">SSE</span>
+            <span class="tag">Puppeteer</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
