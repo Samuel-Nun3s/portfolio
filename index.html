@@ -82,7 +82,7 @@
       --accent:    #7c6cfc;
       --accent-2:  #5b8cff;
       --text:      #e8eaf0;
-      --muted:     #6b7280;
+      --muted:     #9da5b4;
       --mono:      'JetBrains Mono', monospace;
       --sans:      'DM Sans', sans-serif;
       --display:   'Syne', sans-serif;
@@ -176,6 +176,37 @@
     .nav-cta:hover {
       background: rgba(124, 108, 252, 0.08);
       border-color: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      padding: 7px 14px;
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    }
+
+    .lang-toggle:hover {
+      border-color: rgba(124, 108, 252, 0.4);
+      color: var(--text);
+    }
+
+    .lang-flag {
+      font-size: 17px;
+      line-height: 1;
     }
 
     /* ── SECTIONS ── */
@@ -357,7 +388,7 @@
 
     .section-label {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 14px;
       color: var(--accent);
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -1015,6 +1046,8 @@
       .nav-links { display: none; }
       .nav-logo { font-size: 13px; }
       .nav-cta { font-size: 12px; padding: 7px 14px; }
+      .lang-toggle { font-size: 11px; padding: 6px 10px; }
+      .lang-flag { font-size: 14px; }
 
       /* Hero */
       #hero { padding: 110px 20px 70px; }
@@ -1068,12 +1101,17 @@
   <nav>
     <span class="nav-logo">samuelnunes.dev<span class="cursor"></span></span>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" data-i18n="nav-about">Sobre</a></li>
+      <li><a href="#experience" data-i18n="nav-experience">Experiência</a></li>
+      <li><a href="#projects" data-i18n="nav-projects">Projetos</a></li>
+      <li><a href="#contact" data-i18n="nav-contact">Contato</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Hire me →</a>
+    <div class="nav-actions">
+      <button id="lang-toggle" class="lang-toggle" onclick="toggleLang()">
+        <span class="lang-flag">🇧🇷</span> PT
+      </button>
+      <a href="#contact" class="nav-cta" data-i18n="nav-cta">Me contrate →</a>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -1081,53 +1119,36 @@
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
 
-    <div class="hero-tag">Available for remote work</div>
+    <div class="hero-tag" data-i18n="hero-tag">Disponível para trabalho remoto/Presencial - CLT/PJ</div>
 
     <h1 class="hero-name">
       <span class="line-1">Samuel</span>
       <span class="line-2">Nunes.</span>
     </h1>
 
-    <p class="hero-desc">
-      <strong>Full Stack Developer</strong> specializing in backend architecture,
-      AI agents, and large-scale automation. Based in Balneário Camboriú, Brazil —
-      building products that solve real problems.
-    </p>
+    <p class="hero-desc" data-i18n="hero-desc">👨‍💻🇧🇷 <strong>Full Stack Developer</strong> especializado em arquitetura backend, agentes de IA e automação em larga escala. Localizado em Balneário Camboriú, Brasil, construindo produtos que resolvem problemas reais.</p>
 
     <div class="hero-actions">
-      <a href="#projects" class="btn-primary">View Projects →</a>
+      <a href="#projects" class="btn-primary" data-i18n="hero-btn-primary">Ver Projetos →</a>
       <a href="https://github.com/Samuel-Nun3s" target="_blank" class="btn-secondary">GitHub ↗</a>
     </div>
 
     <div class="hero-scroll">
       <span class="scroll-line"></span>
-      scroll to explore
+      <span data-i18n="hero-scroll">scroll para explorar</span>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="section-label">// about</div>
-    <h2 class="section-title">Beyond the code</h2>
+    <div class="section-label" data-i18n="about-label">// sobre</div>
+    <h2 class="section-title" data-i18n="about-title">Além do código</h2>
 
     <div class="about-grid">
       <div class="about-text">
-        <p>
-          I've been coding since I was 15, and professionally for over a year — but the
-          complexity of what I build doesn't reflect a typical timeline.
-          I work on <strong>AI agent ecosystems</strong>, multi-tenant SaaS platforms,
-          and automation pipelines that run 24/7 in production.
-        </p>
-        <p>
-          My background spans the full lifecycle: API design, real-time systems,
-          LLM integrations, workflow automation with n8n, infrastructure on AWS,
-          and shipping products that real users pay for.
-        </p>
-        <p>
-          I'm also the founder of <strong>CVEngine</strong> — a SaaS product I designed,
-          built, and launched independently. Open to remote opportunities with
-          teams building ambitious things.
-        </p>
+        <p data-i18n="about-p1">Estou programando desde os 15 anos, e a complexidade do que eu construo não reflete uma linha do tempo típica. Trabalho em <strong>ecossistemas de agentes de IA</strong>, plataformas SaaS multi-tenant e pipelines de automação que rodam 24/7 em produção.</p>
+        <p data-i18n="about-p2">Meu background abrange todo o ciclo: design de APIs, sistemas em tempo real, integrações com LLMs, automação de workflows com n8n, infraestrutura na AWS, e entrega de produtos que usuários reais pagam para usar.</p>
+        <p data-i18n="about-p3">Sou também o fundador do <strong>CVEngine</strong>, um produto SaaS que projetei, construí e lancei de forma independente. Aberto a oportunidades remotas com equipes construindo coisas ambiciosas.</p>
       </div>
 
       <div class="skills-grid">
@@ -1153,24 +1174,24 @@
 
   <!-- EXPERIENCE -->
   <section id="experience">
-    <div class="section-label">// experience</div>
-    <h2 class="section-title">Where I've worked</h2>
+    <div class="section-label" data-i18n="exp-label">// experiência</div>
+    <h2 class="section-title" data-i18n="exp-title">Onde trabalhei</h2>
 
     <div class="exp-list">
 
       <div class="exp-item reveal">
         <div class="exp-meta">
-          <div class="exp-period">Jun 2025 — Present</div>
+          <div class="exp-period" data-i18n="exp-period-1">Jun 2025 - Presente</div>
           <div class="exp-company">Clínica Rigatti</div>
-          <div class="exp-role">Full Stack Developer</div>
+          <div class="exp-role" data-i18n="exp-role-1">Desenvolvedor Full Stack</div>
         </div>
         <div class="exp-content">
           <ul class="exp-bullets">
-            <li>Designed and deployed <strong>8 AI agents in production</strong> using function calling and LangChain — handling lead qualification, appointment confirmation, and patient triage autonomously via WhatsApp.</li>
-            <li>Architected <strong>30+ n8n automation workflows</strong> running 24/7, including a multi-source lead qualification engine processing 7+ input channels with scoring, tagging, and intelligent routing.</li>
-            <li>Built a <strong>multi-channel lead recovery system</strong> with an intelligent follow-up queue (1h, 6h, 24h, 72h windows), anti-duplication logic, and automatic handoff to AI agent on response — across WhatsApp and SMS.</li>
-            <li>Implemented <strong>automated test suites</strong> covering critical platform modules including trigger flows, automated actions, and cross-module integration.</li>
-            <li>Implemented <strong>Meta Conversions API</strong> server-side with advanced parameters across all lead capture flows, enabling precise campaign attribution for paid traffic.</li>
+            <li data-i18n="exp-bullet-1-1">Projetei e implantei <strong>8 agentes de IA em produção</strong> usando function calling e LangChain, gerenciando qualificação de leads, confirmação de consultas e triagem de pacientes de forma autônoma via WhatsApp.</li>
+            <li data-i18n="exp-bullet-1-2">Arquitetei <strong>mais de 30 automações n8n</strong> rodando 24/7, incluindo um motor de qualificação de leads multi-fonte processando 7+ canais de entrada com pontuação, tags e roteamento inteligente.</li>
+            <li data-i18n="exp-bullet-1-3">Construí um <strong>sistema de recuperação de leads multi-canal</strong> com fila de follow-up inteligente (1h, 6h, 24h, 72h), lógica anti-duplicação e handoff automático para agente de IA na resposta, via WhatsApp e SMS.</li>
+            <li data-i18n="exp-bullet-1-4">Implementei <strong>suítes de testes automatizados</strong> cobrindo módulos críticos da plataforma, incluindo fluxos de gatilho, ações automatizadas e integração entre módulos.</li>
+            <li data-i18n="exp-bullet-1-5">Implementei a <strong>Meta Conversions API</strong> server-side com parâmetros avançados em todos os fluxos de captura de leads, permitindo atribuição precisa de campanhas para tráfego pago.</li>
           </ul>
           <div class="exp-tags">
             <span class="tag">Node.js</span>
@@ -1188,15 +1209,15 @@
 
       <div class="exp-item reveal" style="animation-delay: 0.15s">
         <div class="exp-meta">
-          <div class="exp-period">Jan 2026 — Present</div>
+          <div class="exp-period" data-i18n="exp-period-2">Jan 2026 - Presente</div>
           <div class="exp-company">CVEngine</div>
-          <div class="exp-role">Founder & Developer</div>
+          <div class="exp-role" data-i18n="exp-role-2">Fundador & Desenvolvedor</div>
         </div>
         <div class="exp-content">
           <ul class="exp-bullets">
-            <li>Designed, built, and launched a <strong>SaaS product independently</strong> — from architecture decisions to payment integration and production deploy.</li>
-            <li>Engineered an <strong>AI pipeline</strong> that extracts structured data from job descriptions, scores profile compatibility (0–100), and generates ATS-optimized resumes tailored to each role.</li>
-            <li>Implemented <strong>real-time notifications via SSE</strong>, subscription plans with usage limits, Stripe checkout and webhook handling, and on-demand PDF generation with Puppeteer.</li>
+            <li data-i18n="exp-bullet-2-1">Projetei, construí e lancei um <strong>produto SaaS de forma independente</strong>, desde decisões de arquitetura até integração de pagamentos e deploy em produção.</li>
+            <li data-i18n="exp-bullet-2-2">Desenvolvi um <strong>pipeline de IA</strong> que extrai dados estruturados de descrições de vagas, avalia compatibilidade do perfil (0–100) e gera currículos otimizados para ATS adaptados a cada vaga.</li>
+            <li data-i18n="exp-bullet-2-3">Implementei <strong>notificações em tempo real via SSE</strong>, planos de assinatura com limites de uso, checkout e webhooks do Stripe, e geração de PDF sob demanda com Puppeteer.</li>
           </ul>
           <div class="exp-tags">
             <span class="tag">Node.js</span>
@@ -1218,10 +1239,10 @@
   <section id="projects">
     <div class="projects-header">
       <div>
-        <div class="section-label">// projects</div>
-        <h2 class="section-title">Selected work</h2>
+        <div class="section-label" data-i18n="proj-label">// projetos</div>
+        <h2 class="section-title" data-i18n="proj-title">Trabalhos selecionados</h2>
       </div>
-      <span class="project-count">05 projects</span>
+      <span class="project-count" data-i18n="proj-count">05 projetos</span>
     </div>
 
     <!-- Featured: CVEngine -->
@@ -1230,15 +1251,10 @@
         <div>
           <div class="project-status">
             <span class="status-dot live"></span>
-            Live product
+            <span data-i18n="proj-status">Produto ao vivo</span>
           </div>
           <h3 class="project-name">CVEngine</h3>
-          <p class="project-desc">
-            AI-powered SaaS that analyzes job descriptions, scores your profile
-            compatibility (0–100), and generates ATS-optimized resumes tailored
-            to each specific role. Shipped as a full product with subscriptions,
-            admin panel, and real-time notifications.
-          </p>
+          <p class="project-desc" data-i18n="proj-desc">SaaS com IA que analisa descrições de vagas, avalia sua compatibilidade de perfil (0–100) e gera currículos otimizados para ATS adaptados a cada vaga específica. Lançado como produto completo com assinaturas, painel admin e notificações em tempo real.</p>
           <div class="project-stack">
             <span class="tag">Node.js</span>
             <span class="tag">TypeScript</span>
@@ -1251,9 +1267,7 @@
           </div>
         </div>
         <div class="project-links">
-          <a href="https://cvengine.com.br" target="_blank" class="project-link project-link-btn">
-            Visit site →
-          </a>
+          <a href="https://cvengine.com.br" target="_blank" class="project-link project-link-btn" data-i18n="proj-link">Visitar site →</a>
         </div>
       </div>
       <div class="project-visual" style="opacity:1; padding:0; background:#0a0b12;">
@@ -1379,17 +1393,12 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
-      <div class="section-label">// contact</div>
-      <h2 class="section-title">Let's build<br/>something.</h2>
+      <div class="section-label" data-i18n="contact-label">// contato</div>
+      <h2 class="section-title" data-i18n="contact-title">Vamos construir<br/>algo.</h2>
 
-      <p style="color: var(--muted); font-weight: 300; font-size: 16px; line-height: 1.7; margin-top: 20px; max-width: 480px;">
-        Open to full-time remote positions and freelance projects.
-        If you have a problem worth solving, I want to hear about it.
-      </p>
+      <p style="color: var(--muted); font-weight: 300; font-size: 16px; line-height: 1.7; margin-top: 20px; max-width: 480px;" data-i18n="contact-desc">Aberto a posições remotas em tempo integral e projetos freelance. Se você tem um problema que vale a pena resolver, quero saber.</p>
 
-      <a href="mailto:samuel.n.c.nun3s@gmail.com" class="contact-email">
-        Entre em contato →
-      </a>
+      <a href="mailto:samuel.n.c.nun3s@gmail.com" class="contact-email" data-i18n="contact-cta">Entre em contato →</a>
 
       <div class="contact-links">
         <a href="https://github.com/Samuel-Nun3s" target="_blank" class="contact-link">
@@ -1408,10 +1417,119 @@
   <!-- FOOTER -->
   <footer>
     <p>© 2026 Samuel Nunes</p>
-    <p>Balneário Camboriú, Brazil · Remote worldwide</p>
+    <p data-i18n="footer-2">Balneário Camboriú, Brasil · Remoto globalmente</p>
   </footer>
 
   <script>
+    // ── TRANSLATIONS ──
+    const translations = {
+      pt: {
+        'nav-about': 'Sobre',
+        'nav-experience': 'Experiência',
+        'nav-projects': 'Projetos',
+        'nav-contact': 'Contato',
+        'nav-cta': 'Me contrate →',
+        'hero-tag': 'Disponível para trabalho remoto',
+        'hero-desc': '👨‍💻🇧🇷 <strong>Full Stack Developer</strong> especializado em arquitetura backend, agentes de IA e automação em larga escala. Localizado em Balneário Camboriú, Brasil, construindo produtos que resolvem problemas reais.',
+        'hero-btn-primary': 'Ver Projetos →',
+        'hero-scroll': 'scroll para explorar',
+        'about-label': '// sobre',
+        'about-title': 'Além do código',
+        'about-p1': 'Estou programando desde os 15 anos, e a complexidade do que eu construo não reflete uma linha do tempo típica. Trabalho em <strong>ecossistemas de agentes de IA</strong>, plataformas SaaS multi-tenant e pipelines de automação que rodam 24/7 em produção.',
+        'about-p2': 'Meu background abrange todo o ciclo: design de APIs, sistemas em tempo real, integrações com LLMs, automação de workflows com n8n, infraestrutura na AWS, e entrega de produtos que usuários reais pagam para usar.',
+        'about-p3': 'Sou também o fundador do <strong>CVEngine</strong>, um produto SaaS que projetei, construí e lancei de forma independente. Aberto a oportunidades remotas com equipes construindo coisas ambiciosas.',
+        'exp-label': '// experiência',
+        'exp-title': 'Onde trabalhei',
+        'exp-period-1': 'Jun 2025 - Presente',
+        'exp-role-1': 'Desenvolvedor Full Stack',
+        'exp-bullet-1-1': 'Projetei e implantei <strong>8 agentes de IA em produção</strong> usando function calling e LangChain, gerenciando qualificação de leads, confirmação de consultas e triagem de pacientes de forma autônoma via WhatsApp.',
+        'exp-bullet-1-2': 'Arquitetei <strong>mais de 30 automações n8n</strong> rodando 24/7, incluindo um motor de qualificação de leads multi-fonte processando 7+ canais de entrada com pontuação, tags e roteamento inteligente.',
+        'exp-bullet-1-3': 'Construí um <strong>sistema de recuperação de leads multi-canal</strong> com fila de follow-up inteligente (1h, 6h, 24h, 72h), lógica anti-duplicação e handoff automático para agente de IA na resposta, via WhatsApp e SMS.',
+        'exp-bullet-1-4': 'Implementei <strong>suítes de testes automatizados</strong> cobrindo módulos críticos da plataforma, incluindo fluxos de gatilho, ações automatizadas e integração entre módulos.',
+        'exp-bullet-1-5': 'Implementei a <strong>Meta Conversions API</strong> server-side com parâmetros avançados em todos os fluxos de captura de leads, permitindo atribuição precisa de campanhas para tráfego pago.',
+        'exp-period-2': 'Jan 2026 - Presente',
+        'exp-role-2': 'Fundador & Desenvolvedor',
+        'exp-bullet-2-1': 'Projetei, construí e lancei um <strong>produto SaaS de forma independente</strong>, desde decisões de arquitetura até integração de pagamentos e deploy em produção.',
+        'exp-bullet-2-2': 'Desenvolvi um <strong>pipeline de IA</strong> que extrai dados estruturados de descrições de vagas, avalia compatibilidade do perfil (0–100) e gera currículos otimizados para ATS adaptados a cada vaga.',
+        'exp-bullet-2-3': 'Implementei <strong>notificações em tempo real via SSE</strong>, planos de assinatura com limites de uso, checkout e webhooks do Stripe, e geração de PDF sob demanda com Puppeteer.',
+        'proj-label': '// projetos',
+        'proj-title': 'Trabalhos selecionados',
+        'proj-count': '05 projetos',
+        'proj-status': 'Produto ao vivo',
+        'proj-desc': 'SaaS com IA que analisa descrições de vagas, avalia sua compatibilidade de perfil (0–100) e gera currículos otimizados para ATS adaptados a cada vaga específica. Lançado como produto completo com assinaturas, painel admin e notificações em tempo real.',
+        'proj-link': 'Visitar site →',
+        'contact-label': '// contato',
+        'contact-title': 'Vamos construir<br/>algo.',
+        'contact-desc': 'Aberto a posições remotas em tempo integral e projetos freelance. Se você tem um problema que vale a pena resolver, quero saber.',
+        'contact-cta': 'Entre em contato →',
+        'footer-2': 'Balneário Camboriú, Brasil · Remoto globalmente',
+      },
+      en: {
+        'nav-about': 'About',
+        'nav-experience': 'Experience',
+        'nav-projects': 'Projects',
+        'nav-contact': 'Contact',
+        'nav-cta': 'Hire me →',
+        'hero-tag': 'Available for remote work',
+        'hero-desc': '👨‍💻🇧🇷 <strong>Full Stack Developer</strong> specializing in backend architecture, AI agents, and large-scale automation. Based in Balneário Camboriú, Brazil, building products that solve real problems.',
+        'hero-btn-primary': 'View Projects →',
+        'hero-scroll': 'scroll to explore',
+        'about-label': '// about',
+        'about-title': 'Beyond the code',
+        'about-p1': "I've been coding since I was 15, and the complexity of what I build doesn't reflect a typical timeline. I work on <strong>AI agent ecosystems</strong>, multi-tenant SaaS platforms, and automation pipelines that run 24/7 in production.",
+        'about-p2': 'My background spans the full lifecycle: API design, real-time systems, LLM integrations, workflow automation with n8n, infrastructure on AWS, and shipping products that real users pay for.',
+        'about-p3': "I'm also the founder of <strong>CVEngine</strong>, a SaaS product I designed, built, and launched independently. Open to remote opportunities with teams building ambitious things.",
+        'exp-label': '// experience',
+        'exp-title': "Where I've worked",
+        'exp-period-1': 'Jun 2025 - Present',
+        'exp-role-1': 'Full Stack Developer',
+        'exp-bullet-1-1': 'Designed and deployed <strong>8 AI agents in production</strong> using function calling and LangChain, handling lead qualification, appointment confirmation, and patient triage autonomously via WhatsApp.',
+        'exp-bullet-1-2': 'Architected <strong>30+ n8n automation workflows</strong> running 24/7, including a multi-source lead qualification engine processing 7+ input channels with scoring, tagging, and intelligent routing.',
+        'exp-bullet-1-3': 'Built a <strong>multi-channel lead recovery system</strong> with an intelligent follow-up queue (1h, 6h, 24h, 72h windows), anti-duplication logic, and automatic handoff to AI agent on response, across WhatsApp and SMS.',
+        'exp-bullet-1-4': 'Implemented <strong>automated test suites</strong> covering critical platform modules including trigger flows, automated actions, and cross-module integration.',
+        'exp-bullet-1-5': 'Implemented <strong>Meta Conversions API</strong> server-side with advanced parameters across all lead capture flows, enabling precise campaign attribution for paid traffic.',
+        'exp-period-2': 'Jan 2026 - Present',
+        'exp-role-2': 'Founder & Developer',
+        'exp-bullet-2-1': 'Designed, built, and launched a <strong>SaaS product independently</strong>, from architecture decisions to payment integration and production deploy.',
+        'exp-bullet-2-2': 'Engineered an <strong>AI pipeline</strong> that extracts structured data from job descriptions, scores profile compatibility (0–100), and generates ATS-optimized resumes tailored to each role.',
+        'exp-bullet-2-3': 'Implemented <strong>real-time notifications via SSE</strong>, subscription plans with usage limits, Stripe checkout and webhook handling, and on-demand PDF generation with Puppeteer.',
+        'proj-label': '// projects',
+        'proj-title': 'Selected work',
+        'proj-count': '05 projects',
+        'proj-status': 'Live product',
+        'proj-desc': 'AI-powered SaaS that analyzes job descriptions, scores your profile compatibility (0–100), and generates ATS-optimized resumes tailored to each specific role. Shipped as a full product with subscriptions, admin panel, and real-time notifications.',
+        'proj-link': 'Visit site →',
+        'contact-label': '// contact',
+        'contact-title': "Let's build<br/>something.",
+        'contact-desc': 'Open to full-time remote positions and freelance projects. If you have a problem worth solving, I want to hear about it.',
+        'contact-cta': 'Get in touch →',
+        'footer-2': 'Balneário Camboriú, Brazil · Remote worldwide',
+      }
+    };
+
+    let currentLang = 'pt';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key] !== undefined) {
+          el.innerHTML = translations[lang][key];
+        }
+      });
+      const btn = document.getElementById('lang-toggle');
+      if (btn) {
+        btn.innerHTML = lang === 'pt'
+          ? '<span class="lang-flag">🇧🇷</span> PT'
+          : '<span class="lang-flag">🇺🇸</span> EN';
+      }
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    }
+
+    function toggleLang() {
+      setLang(currentLang === 'pt' ? 'en' : 'pt');
+    }
+
     // Carousel — troca imagens desktop/mobile
     const desktopImages = [
       { src: 'images/cvengine/desktop/1.webp', alt: 'CVEngine - Dashboard' },
