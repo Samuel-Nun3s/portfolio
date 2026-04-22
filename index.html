@@ -214,7 +214,7 @@
 
     /* ── HERO ── */
     #hero {
-      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -1449,7 +1449,7 @@
 
       <p style="color: var(--muted); font-weight: 300; font-size: 16px; line-height: 1.7; margin-top: 20px; max-width: 480px;" data-i18n="contact-desc">Aberto a posições remotas em tempo integral e projetos freelance. Se você tem um problema que vale a pena resolver, quero saber.</p>
 
-      <a href="mailto:samuel.n.c.nun3s@gmail.com" class="contact-email" data-i18n="contact-cta">Entre em contato →</a>
+      <a href="mailto:samuel.n.c.nun3s@gmail.com" class="contact-email" data-i18n="contact-cta" onclick="copyEmail(event)">Entre em contato →</a>
 
       <div class="contact-links">
         <a href="https://github.com/Samuel-Nun3s" target="_blank" class="contact-link">
@@ -1513,6 +1513,7 @@
         'contact-title': 'Vamos construir<br/>algo.',
         'contact-desc': 'Aberto a posições remotas em tempo integral e projetos freelance. Se você tem um problema que vale a pena resolver, quero saber.',
         'contact-cta': 'Entre em contato →',
+        'contact-copied': 'Email copiado! ✓',
         'footer-2': 'Balneário Camboriú, Brasil · Remoto globalmente',
       },
       en: {
@@ -1554,6 +1555,7 @@
         'contact-title': "Let's build<br/>something.",
         'contact-desc': 'Open to full-time remote positions and freelance projects. If you have a problem worth solving, I want to hear about it.',
         'contact-cta': 'Get in touch →',
+        'contact-copied': 'Email copied! ✓',
         'footer-2': 'Balneário Camboriú, Brazil · Remote worldwide',
       }
     };
@@ -1579,6 +1581,21 @@
 
     function toggleLang() {
       setLang(currentLang === 'pt' ? 'en' : 'pt');
+    }
+
+    function copyEmail(e) {
+      const isTouchDevice = window.matchMedia('(hover: none)').matches;
+      if (isTouchDevice) return;
+      e.preventDefault();
+      const email = 'samuel.n.c.nun3s@gmail.com';
+      const btn = e.currentTarget;
+      navigator.clipboard.writeText(email).then(() => {
+        const original = btn.innerHTML;
+        btn.innerHTML = translations[currentLang]['contact-copied'];
+        setTimeout(() => { btn.innerHTML = original; }, 2500);
+      }).catch(() => {
+        window.location.href = 'mailto:' + email;
+      });
     }
 
     // Carousel — troca imagens desktop/mobile
