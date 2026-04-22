@@ -216,10 +216,34 @@
     #hero {
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
       justify-content: center;
+      gap: 80px;
       padding: 140px 60px 80px;
       position: relative;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .hero-photo-mobile {
+      display: none;
+    }
+
+    .hero-photo-wrap {
+      flex-shrink: 0;
+      width: 420px;
+      z-index: 0;
+    }
+
+    .hero-photo {
+      width: 100%;
+      display: block;
     }
 
     .hero-tag {
@@ -1050,8 +1074,25 @@
       .lang-flag { font-size: 14px; }
 
       /* Hero */
-      #hero { padding: 110px 20px 70px; }
-      .hero-desc { font-size: 16px; max-width: 100%; }
+      #hero { padding: 84px 20px 56px; flex-direction: column; justify-content: center; gap: 0; }
+      .hero-tag { margin-bottom: 16px; }
+      .hero-name { margin-bottom: 10px; }
+      .hero-photo-wrap { display: none; }
+      .hero-photo-mobile {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+      }
+      .hero-photo-mob-img {
+        width: 200px;
+        height: 280px;
+        border-radius: 16px;
+        object-fit: cover;
+        object-position: top center;
+      }
+      .hero-content { max-width: 100%; }
+      .hero-desc { font-size: 16px; max-width: 100%; margin-bottom: 32px; }
       .hero-actions { flex-wrap: wrap; gap: 12px; }
       .btn-primary, .btn-secondary { font-size: 13px; padding: 12px 20px; width: 100%; justify-content: center; }
       .hero-scroll { left: 20px; }
@@ -1080,7 +1121,7 @@
 
       /* Contact */
       .contact-links { flex-wrap: wrap; gap: 16px; }
-      .contact-email { font-size: 28px; }
+      .contact-email { font-size: 24px; }
 
       /* Footer */
       footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 20px; }
@@ -1110,7 +1151,7 @@
       <button id="lang-toggle" class="lang-toggle" onclick="toggleLang()">
         <span class="lang-flag">🇧🇷</span> PT
       </button>
-      <a href="#contact" class="nav-cta" data-i18n="nav-cta">Me contrate →</a>
+      <a href="#contact" class="nav-cta" data-i18n="nav-cta">Fale comigo →</a>
     </div>
   </nav>
 
@@ -1119,18 +1160,28 @@
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
 
-    <div class="hero-tag" data-i18n="hero-tag">Disponível para trabalho remoto/Presencial - CLT/PJ</div>
+    <div class="hero-content">
+      <div class="hero-tag" data-i18n="hero-tag">Disponível para trabalho remoto/Presencial - CLT/PJ</div>
 
-    <h1 class="hero-name">
-      <span class="line-1">Samuel</span>
-      <span class="line-2">Nunes.</span>
-    </h1>
+      <h1 class="hero-name">
+        <span class="line-1">Samuel</span>
+        <span class="line-2">Nunes.</span>
+      </h1>
 
-    <p class="hero-desc" data-i18n="hero-desc">👨‍💻🇧🇷 <strong>Full Stack Developer</strong> especializado em arquitetura backend, agentes de IA e automação em larga escala. Localizado em Balneário Camboriú, Brasil, construindo produtos que resolvem problemas reais.</p>
+      <div class="hero-photo-mobile" aria-hidden="true">
+        <img src="images/samuel.webp" alt="" class="hero-photo-mob-img" />
+      </div>
 
-    <div class="hero-actions">
-      <a href="#projects" class="btn-primary" data-i18n="hero-btn-primary">Ver Projetos →</a>
-      <a href="https://github.com/Samuel-Nun3s" target="_blank" class="btn-secondary">GitHub ↗</a>
+      <p class="hero-desc" data-i18n="hero-desc">👨‍💻🇧🇷 <strong>Full Stack Developer</strong> especializado em arquitetura backend, agentes de IA e automação em larga escala. Localizado em Balneário Camboriú, Brasil, construindo produtos que resolvem problemas reais.</p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary" data-i18n="hero-btn-primary">Ver Projetos →</a>
+        <a href="https://github.com/Samuel-Nun3s" target="_blank" class="btn-secondary">GitHub ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <img src="images/samuel.webp" alt="Samuel Nunes" class="hero-photo" />
     </div>
 
     <div class="hero-scroll">
@@ -1428,8 +1479,8 @@
         'nav-experience': 'Experiência',
         'nav-projects': 'Projetos',
         'nav-contact': 'Contato',
-        'nav-cta': 'Me contrate →',
-        'hero-tag': 'Disponível para trabalho remoto',
+        'nav-cta': 'Fale comigo →',
+        'hero-tag': 'Disponível para trabalho remoto/Presencial - CLT/PJ',
         'hero-desc': '👨‍💻🇧🇷 <strong>Full Stack Developer</strong> especializado em arquitetura backend, agentes de IA e automação em larga escala. Localizado em Balneário Camboriú, Brasil, construindo produtos que resolvem problemas reais.',
         'hero-btn-primary': 'Ver Projetos →',
         'hero-scroll': 'scroll para explorar',
@@ -1469,8 +1520,8 @@
         'nav-experience': 'Experience',
         'nav-projects': 'Projects',
         'nav-contact': 'Contact',
-        'nav-cta': 'Hire me →',
-        'hero-tag': 'Available for remote work',
+        'nav-cta': 'Say hello →',
+        'hero-tag': 'Available for remote/on-site work - CLT/PJ',
         'hero-desc': '👨‍💻🇧🇷 <strong>Full Stack Developer</strong> specializing in backend architecture, AI agents, and large-scale automation. Based in Balneário Camboriú, Brazil, building products that solve real problems.',
         'hero-btn-primary': 'View Projects →',
         'hero-scroll': 'scroll to explore',
