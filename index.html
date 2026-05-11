@@ -982,6 +982,16 @@
       user-select: none;
     }
 
+    .project-video {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      background: #0a0b12;
+    }
+
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -1338,6 +1348,36 @@
       </div>
     </div>
 
+    <!-- Featured: Accord -->
+    <div class="project-featured reveal">
+      <div class="project-info">
+        <div>
+          <div class="project-status">
+            <span class="status-dot dev"></span>
+            <span data-i18n="accord-status">Projeto pessoal</span>
+          </div>
+          <h3 class="project-name">Accord</h3>
+          <p class="project-desc" data-i18n="accord-desc">Plataforma de mensagens em tempo real com chats privados, grupos, recibos de entrega e leitura, e WebSockets escaláveis via Redis pub/sub. Autenticação JWT com rotação de refresh token, upload de avatar e i18n completo.</p>
+          <div class="project-stack">
+            <span class="tag">NestJS</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Redis</span>
+            <span class="tag">Socket.IO</span>
+            <span class="tag">TypeORM</span>
+            <span class="tag">Zustand</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Samuel-Nun3s/chat-platform" target="_blank" class="project-link project-link-btn" data-i18n="accord-link">Ver no GitHub →</a>
+        </div>
+      </div>
+      <div class="project-visual" style="opacity:1; padding:0; background:#0a0b12;">
+        <video class="project-video" src="images/accord/demo.mp4" autoplay muted loop playsinline poster="images/accord/chat-group.webp"></video>
+      </div>
+    </div>
+
     <!-- Grid projects -->
     <!--
     <div class="projects-grid">
@@ -1505,10 +1545,13 @@
         'exp-bullet-2-3': 'Implementei <strong>notificações em tempo real via SSE</strong>, planos de assinatura com limites de uso, checkout e webhooks do Stripe, e geração de PDF sob demanda com Puppeteer.',
         'proj-label': '// projetos',
         'proj-title': 'Trabalhos selecionados',
-        'proj-count': '05 projetos',
+        'proj-count': '02 projetos',
         'proj-status': 'Produto ao vivo',
         'proj-desc': 'SaaS com IA que analisa descrições de vagas, avalia sua compatibilidade de perfil (0–100) e gera currículos otimizados para ATS adaptados a cada vaga específica. Lançado como produto completo com assinaturas, painel admin e notificações em tempo real.',
         'proj-link': 'Visitar site →',
+        'accord-status': 'Projeto pessoal',
+        'accord-desc': 'Plataforma de mensagens em tempo real com chats privados, grupos, recibos de entrega e leitura, e WebSockets escaláveis via Redis pub/sub. Autenticação JWT com rotação de refresh token, upload de avatar e i18n completo.',
+        'accord-link': 'Ver no GitHub →',
         'contact-label': '// contato',
         'contact-title': 'Vamos construir<br/>algo.',
         'contact-desc': 'Aberto a posições remotas em tempo integral e projetos freelance. Se você tem um problema que vale a pena resolver, quero saber.',
@@ -1547,10 +1590,13 @@
         'exp-bullet-2-3': 'Implemented <strong>real-time notifications via SSE</strong>, subscription plans with usage limits, Stripe checkout and webhook handling, and on-demand PDF generation with Puppeteer.',
         'proj-label': '// projects',
         'proj-title': 'Selected work',
-        'proj-count': '05 projects',
+        'proj-count': '02 projects',
         'proj-status': 'Live product',
         'proj-desc': 'AI-powered SaaS that analyzes job descriptions, scores your profile compatibility (0–100), and generates ATS-optimized resumes tailored to each specific role. Shipped as a full product with subscriptions, admin panel, and real-time notifications.',
         'proj-link': 'Visit site →',
+        'accord-status': 'Personal project',
+        'accord-desc': 'Real-time messaging platform with private chats, groups, delivery and read receipts, and scalable WebSockets via Redis pub/sub. JWT authentication with refresh token rotation, avatar upload, and full i18n.',
+        'accord-link': 'View on GitHub →',
         'contact-label': '// contact',
         'contact-title': "Let's build<br/>something.",
         'contact-desc': 'Open to full-time remote positions and freelance projects. If you have a problem worth solving, I want to hear about it.',
