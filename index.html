@@ -1332,7 +1332,7 @@
         </div>
       </div>
       <div class="project-visual" style="opacity:1; padding:0; background:#0a0b12;">
-        <div class="carousel">
+        <div class="carousel" id="cvengine-carousel">
           <div class="carousel-track">
             <img class="carousel-slide" src="images/cvengine/desktop/1.webp" alt="CVEngine - Dashboard" />
             <img class="carousel-slide" src="images/cvengine/desktop/4.webp" alt="CVEngine - Vagas" />
@@ -1375,6 +1375,45 @@
       </div>
       <div class="project-visual" style="opacity:1; padding:0; background:#0a0b12;">
         <video class="project-video" src="images/accord/demo.mp4" autoplay muted loop playsinline poster="images/accord/chat-group.webp"></video>
+      </div>
+    </div>
+
+    <!-- Featured: Link Analytics -->
+    <div class="project-featured reveal">
+      <div class="project-info">
+        <div>
+          <div class="project-status">
+            <span class="status-dot dev"></span>
+            <span data-i18n="lnk-status">Projeto pessoal</span>
+          </div>
+          <h3 class="project-name">Link Analytics</h3>
+          <p class="project-desc" data-i18n="lnk-desc">Encurtador de URLs self-hosted com analytics em tempo real. Redirect com p50 abaixo de 50ms via cache Redis, live feed de cliques via Redis Pub/Sub + SSE, detecção de bots em 3 camadas e 59 testes automatizados.</p>
+          <div class="project-stack">
+            <span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Express</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Prisma</span>
+            <span class="tag">Redis</span>
+            <span class="tag">React</span>
+            <span class="tag">SSE</span>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Samuel-Nun3s/link-analytics" target="_blank" class="project-link project-link-btn" data-i18n="lnk-link">Ver no GitHub →</a>
+        </div>
+      </div>
+      <div class="project-visual" style="opacity:1; padding:0; background:#0a0b12;">
+        <div class="carousel" id="link-analytics-carousel">
+          <div class="carousel-track">
+            <img class="carousel-slide" src="images/link-analytics/dashboard.webp" alt="Link Analytics - Dashboard" />
+            <img class="carousel-slide" src="images/link-analytics/links.webp" alt="Link Analytics - Links" />
+            <img class="carousel-slide" src="images/link-analytics/login.webp" alt="Link Analytics - Login" />
+          </div>
+          <button class="carousel-btn carousel-prev" aria-label="Anterior">&#8592;</button>
+          <button class="carousel-btn carousel-next" aria-label="Próximo">&#8594;</button>
+          <div class="carousel-dots"></div>
+        </div>
       </div>
     </div>
 
@@ -1545,13 +1584,16 @@
         'exp-bullet-2-3': 'Implementei <strong>notificações em tempo real via SSE</strong>, planos de assinatura com limites de uso, checkout e webhooks do Stripe, e geração de PDF sob demanda com Puppeteer.',
         'proj-label': '// projetos',
         'proj-title': 'Trabalhos selecionados',
-        'proj-count': '02 projetos',
+        'proj-count': '03 projetos',
         'proj-status': 'Produto ao vivo',
         'proj-desc': 'SaaS com IA que analisa descrições de vagas, avalia sua compatibilidade de perfil (0–100) e gera currículos otimizados para ATS adaptados a cada vaga específica. Lançado como produto completo com assinaturas, painel admin e notificações em tempo real.',
         'proj-link': 'Visitar site →',
         'accord-status': 'Projeto pessoal',
         'accord-desc': 'Plataforma de mensagens em tempo real com chats privados, grupos, recibos de entrega e leitura, e WebSockets escaláveis via Redis pub/sub. Autenticação JWT com rotação de refresh token, upload de avatar e i18n completo.',
         'accord-link': 'Ver no GitHub →',
+        'lnk-status': 'Projeto pessoal',
+        'lnk-desc': 'Encurtador de URLs self-hosted com analytics em tempo real. Redirect com p50 abaixo de 50ms via cache Redis, live feed de cliques via Redis Pub/Sub + SSE, detecção de bots em 3 camadas e 59 testes automatizados.',
+        'lnk-link': 'Ver no GitHub →',
         'contact-label': '// contato',
         'contact-title': 'Vamos construir<br/>algo.',
         'contact-desc': 'Aberto a posições remotas em tempo integral e projetos freelance. Se você tem um problema que vale a pena resolver, quero saber.',
@@ -1590,13 +1632,16 @@
         'exp-bullet-2-3': 'Implemented <strong>real-time notifications via SSE</strong>, subscription plans with usage limits, Stripe checkout and webhook handling, and on-demand PDF generation with Puppeteer.',
         'proj-label': '// projects',
         'proj-title': 'Selected work',
-        'proj-count': '02 projects',
+        'proj-count': '03 projects',
         'proj-status': 'Live product',
         'proj-desc': 'AI-powered SaaS that analyzes job descriptions, scores your profile compatibility (0–100), and generates ATS-optimized resumes tailored to each specific role. Shipped as a full product with subscriptions, admin panel, and real-time notifications.',
         'proj-link': 'Visit site →',
         'accord-status': 'Personal project',
         'accord-desc': 'Real-time messaging platform with private chats, groups, delivery and read receipts, and scalable WebSockets via Redis pub/sub. JWT authentication with refresh token rotation, avatar upload, and full i18n.',
         'accord-link': 'View on GitHub →',
+        'lnk-status': 'Personal project',
+        'lnk-desc': 'Self-hosted URL shortener with real-time analytics. Sub-50ms p50 redirect via Redis cache, live click feed via Redis Pub/Sub + SSE, 3-layer bot detection, and 59 automated tests.',
+        'lnk-link': 'View on GitHub →',
         'contact-label': '// contact',
         'contact-title': "Let's build<br/>something.",
         'contact-desc': 'Open to full-time remote positions and freelance projects. If you have a problem worth solving, I want to hear about it.',
@@ -1644,126 +1689,109 @@
       });
     }
 
-    // Carousel — troca imagens desktop/mobile
-    const desktopImages = [
-      { src: 'images/cvengine/desktop/1.webp', alt: 'CVEngine - Dashboard' },
-      { src: 'images/cvengine/desktop/4.webp', alt: 'CVEngine - Vagas' },
-      { src: 'images/cvengine/desktop/5.webp', alt: 'CVEngine - Currículos gerados' },
-      { src: 'images/cvengine/desktop/3.webp', alt: 'CVEngine - Brag Doc' },
-      { src: 'images/cvengine/desktop/2.webp', alt: 'CVEngine - Perfil' },
-      { src: 'images/cvengine/desktop/6.webp', alt: 'CVEngine - Extensão Chrome' },
-    ];
+    // Carousel — suporta múltiplos carousels independentes
+    function initCarousel(carouselEl, desktopImgs, mobileImgs) {
+      const track = carouselEl.querySelector('.carousel-track');
+      const dotsContainer = carouselEl.querySelector('.carousel-dots');
+      let current = 0;
+      let autoplay;
+      let currentSet = null;
 
-    const mobileImages = [
-      { src: 'images/cvengine/mobile/1.webp', alt: 'CVEngine Mobile - Dashboard' },
-      { src: 'images/cvengine/mobile/4.webp', alt: 'CVEngine Mobile - Vagas' },
-      { src: 'images/cvengine/mobile/5.webp', alt: 'CVEngine Mobile - Currículos' },
-      { src: 'images/cvengine/mobile/3.webp', alt: 'CVEngine Mobile - Brag Doc' },
-      { src: 'images/cvengine/mobile/2.webp', alt: 'CVEngine Mobile - Perfil' },
-      { src: 'images/cvengine/mobile/6.webp', alt: 'CVEngine Mobile - Extensão Chrome' },
-    ];
+      function isMobile() { return window.innerWidth <= 900; }
 
-    const track = document.querySelector('.carousel-track');
-    const dotsContainer = document.querySelector('.carousel-dots');
-    let current = 0;
-    let autoplay;
-    let currentSet = null;
+      function loadImages(images) {
+        const setKey = isMobile() ? 'mobile' : 'desktop';
+        if (currentSet === setKey) return;
+        currentSet = setKey;
+        current = 0;
+        track.innerHTML = '';
+        dotsContainer.innerHTML = '';
+        images.forEach((img, i) => {
+          const el = document.createElement('img');
+          el.className = 'carousel-slide';
+          el.src = img.src;
+          el.alt = img.alt;
+          track.appendChild(el);
+          const dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', `Slide ${i + 1}`);
+          dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
+          dotsContainer.appendChild(dot);
+        });
+        track.style.transform = 'translateX(0)';
+      }
 
-    function isMobile() {
-      return window.innerWidth <= 900;
-    }
+      function goTo(index) {
+        const total = track.querySelectorAll('.carousel-slide').length;
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
 
-    function loadImages(images) {
-      if (currentSet === (isMobile() ? 'mobile' : 'desktop')) return;
-      currentSet = isMobile() ? 'mobile' : 'desktop';
-      current = 0;
+      function startAutoplay() {
+        autoplay = setInterval(() => goTo(current + 1), 3500);
+      }
 
-      track.innerHTML = '';
-      dotsContainer.innerHTML = '';
-
-      images.forEach((img, i) => {
-        const el = document.createElement('img');
-        el.className = 'carousel-slide';
-        el.src = img.src;
-        el.alt = img.alt;
-        track.appendChild(el);
-
-        const dot = document.createElement('button');
-        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-        dot.setAttribute('aria-label', `Slide ${i + 1}`);
-        dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
-        dotsContainer.appendChild(dot);
-      });
-
-      track.style.transform = 'translateX(0)';
-    }
-
-    function updateCarousel() {
-      loadImages(isMobile() ? mobileImages : desktopImages);
-    }
-
-    // Slides
-    let slides = [];
-
-    // Cria dots (compatibilidade — será substituído pelo loadImages)
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', `Slide ${i + 1}`);
-      dot.addEventListener('click', () => goTo(i));
-      dotsContainer.appendChild(dot);
-    });
-
-    function goTo(index) {
-      const total = track.querySelectorAll('.carousel-slide').length;
-      current = (index + total) % total;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      document.querySelectorAll('.carousel-dot').forEach((d, i) => {
-        d.classList.toggle('active', i === current);
-      });
-    }
-
-    document.querySelector('.carousel-prev').addEventListener('click', () => {
-      goTo(current - 1);
-      resetAutoplay();
-    });
-
-    document.querySelector('.carousel-next').addEventListener('click', () => {
-      goTo(current + 1);
-      resetAutoplay();
-    });
-
-    function startAutoplay() {
-      autoplay = setInterval(() => goTo(current + 1), 3500);
-    }
-
-    function resetAutoplay() {
-      clearInterval(autoplay);
-      startAutoplay();
-    }
-
-    // Inicializa com as imagens corretas
-    updateCarousel();
-    startAutoplay();
-
-    // Troca imagens ao redimensionar
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
+      function resetAutoplay() {
         clearInterval(autoplay);
-        updateCarousel();
         startAutoplay();
-      }, 200);
-    });
+      }
 
-    // Swipe support (mobile)
-    let startX = 0;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-    track.addEventListener('touchend', e => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); resetAutoplay(); }
-    });
+      carouselEl.querySelector('.carousel-prev').addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+      carouselEl.querySelector('.carousel-next').addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+
+      loadImages(isMobile() ? mobileImgs : desktopImgs);
+      startAutoplay();
+
+      let startX = 0;
+      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+      track.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); resetAutoplay(); }
+      });
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          clearInterval(autoplay);
+          currentSet = null;
+          loadImages(isMobile() ? mobileImgs : desktopImgs);
+          startAutoplay();
+        }, 200);
+      });
+    }
+
+    // CVEngine carousel
+    initCarousel(
+      document.getElementById('cvengine-carousel'),
+      [
+        { src: 'images/cvengine/desktop/1.webp', alt: 'CVEngine - Dashboard' },
+        { src: 'images/cvengine/desktop/4.webp', alt: 'CVEngine - Vagas' },
+        { src: 'images/cvengine/desktop/5.webp', alt: 'CVEngine - Currículos gerados' },
+        { src: 'images/cvengine/desktop/3.webp', alt: 'CVEngine - Brag Doc' },
+        { src: 'images/cvengine/desktop/2.webp', alt: 'CVEngine - Perfil' },
+        { src: 'images/cvengine/desktop/6.webp', alt: 'CVEngine - Extensão Chrome' },
+      ],
+      [
+        { src: 'images/cvengine/mobile/1.webp', alt: 'CVEngine Mobile - Dashboard' },
+        { src: 'images/cvengine/mobile/4.webp', alt: 'CVEngine Mobile - Vagas' },
+        { src: 'images/cvengine/mobile/5.webp', alt: 'CVEngine Mobile - Currículos' },
+        { src: 'images/cvengine/mobile/3.webp', alt: 'CVEngine Mobile - Brag Doc' },
+        { src: 'images/cvengine/mobile/2.webp', alt: 'CVEngine Mobile - Perfil' },
+        { src: 'images/cvengine/mobile/6.webp', alt: 'CVEngine Mobile - Extensão Chrome' },
+      ]
+    );
+
+    // Link Analytics carousel
+    const lnkImgs = [
+      { src: 'images/link-analytics/dashboard.webp', alt: 'Link Analytics - Dashboard' },
+      { src: 'images/link-analytics/links.webp', alt: 'Link Analytics - Links' },
+      { src: 'images/link-analytics/login.webp', alt: 'Link Analytics - Login' },
+    ];
+    initCarousel(document.getElementById('link-analytics-carousel'), lnkImgs, lnkImgs);
 
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
